@@ -1,0 +1,29 @@
+[
+ {
+  "id": 1,
+  "nombre": "Alvaro Barquin",
+  "email": "alvaro@dh.com",
+  "categoria": "Vendedor",
+  "password": "$2a$10$6ip9RTgQoDcwWXgLNiNOCeD/TK4WYBZtwp3sSmaXYEAP1v4stpDMi",
+  "confirmar_password": "123456",
+  "foto": "1707869502402_img.png"
+ },
+ {
+  "id": 2,
+  "nombre": "anton",
+  "email": "anton@dh.com",
+  "categoria": "vendedor",
+  "password": "$2a$10$DdTJlrfy6Ani24.0v0uwHuq9fyWDmtJRfMjy3zfqSc1Yd1kNAASPO",
+  "confirmar_password": "123456",
+  "foto": "1711001714337_img.jpeg"
+ },
+ {
+  "id": 3,
+  "nombre": "fran",
+  "email": "fran@dh.com",
+  "categoria": "administrador",
+  "password": "$2a$10$7tpnIWRHxyVRVm5ImHvvIezaVJhohrkTbjq6RrKcUn8zpCDYyNega",
+  "confirmar_password": "123456",
+  "foto": "1711049954251_img.jpg"
+ }
+]

@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<%-include("../partials/head")%>
+<link rel="stylesheet" href="/css/editarproducto.css">
+<link rel="stylesheet" href="/css/master.css">
+
+<body>
+    <%-include('../partials/header')%>
+    <main>
+        <div class="container">
+            <div class="form-content">
+                <h1 id="title">Actualizar Producto</h1>
+                <br>
+
+                <form action="/edit/<%= productoEditar.id %>?_method=PUT" method="POST" id="form-editar-producto">
+                    <div class="input-group">
+                        <div class="input-field" id="nameImput">
+                            <input type="text" placeholder="Nombre del producto" name="nombre"
+                                value="<%= productoEditar.nombre %>">
+                            <span class="error-msg" id="nombre-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Precio" name="precio"
+                                value="<%= productoEditar.precio %>">
+                            <span class="error-msg" id="precio-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Descuento" name="descuento"
+                                value="<%= productoEditar.descuento %>">
+                            <span class="error-msg" id="descuento-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Color" name="color"
+                                value="<%= productoEditar.color %>">
+                            <span class="error-msg" id="color-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Memoria" name="memoria"
+                                value="<%= productoEditar.memoria %>">
+                            <span class="error-msg" id="memoria-error"></span>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="btn-field">
+                        <button id="signUp" type="button">Cancelar</button>
+                        <button onclick="validarEditarProducto()" id="signIn" type="button"
+                            class="disable">Actualizar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <%-include("../partials/footer")%>
+
+    <script>
+        function validarEditarProducto() {
+            let nombre = document.forms["form-editar-producto"]["nombre"].value;
+            let precio = document.forms["form-editar-producto"]["precio"].value;
+            let descuento = document.forms["form-editar-producto"]["descuento"].value;
+            let color = document.forms["form-editar-producto"]["color"].value;
+            let memoria = document.forms["form-editar-producto"]["memoria"].value;
+
+            let nombreError = document.getElementById("nombre-error");
+            let precioError = document.getElementById("precio-error");
+            let descuentoError = document.getElementById("descuento-error");
+            let colorError = document.getElementById("color-error");
+            let memoriaError = document.getElementById("memoria-error");
+
+            nombreError.textContent = "";
+            precioError.textContent = "";
+            descuentoError.textContent = "";
+            colorError.textContent = "";
+            memoriaError.textContent = "";
+
+            if (nombre.trim() === "") {
+                nombreError.textContent = "El nombre del producto es requerido.";
+                return false;
+            }
+
+            if (precio.trim() === "") {
+                precioError.textContent = "El precio del producto es requerido.";
+                return false;
+            }
+
+            if (isNaN(precio)) {
+                precioError.textContent = "El precio debe ser un valor numérico.";
+                return false;
+            }
+
+            if (descuento.trim() !== "" && isNaN(descuento)) {
+                descuentoError.textContent = "El descuento debe ser un valor numérico.";
+                return false;
+            }
+
+            if (color.trim() === "") {
+                colorError.textContent = "El color del producto es requerido.";
+                return false;
+            }
+
+            if (memoria.trim() === "") {
+                memoriaError.textContent = "La memoria del producto es requerida.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

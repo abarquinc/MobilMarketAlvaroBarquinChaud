@@ -1,0 +1,39 @@
+<header>
+    <div class="logo_nav">
+        <figure class="logoMM"><img src="/images/logo_Mobile_Market.jpg" alt='logo'></figure>
+    </div>
+
+    <nav>
+        <ul>
+            <li class = "item_nav"><a href="/">Inicio</a></li>
+            <li class = "item_nav"><a href="/productos">Moviles</a></li>
+            <li class = "item_nav"><a href="#">Accesorios</a></li>
+            <li class = "item_nav"><a href="/registro">Registrate</a></li>
+            <li class = "item_nav"><a href="login">Iniciar Sesion</a></li>
+            <li class = "item_nav"><a href="#">Ayuda</a></li>
+            <li class = "item_nav"><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class='iconos' class="logo_nav">
+        <ul class="navbar-nav align-items-center">
+            <% if (locals.isLogged) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:white">
+                        <img src="/images/users/<%= locals.userLogged.foto %>"  style="border-radius: 100%;width: 40px;">
+                        Hola, <%= locals.userLogged.nombre %> 
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/perfil" style="color:white">Mi Perfil</a>
+                        <li><hr class="dropdown-divider"></li>
+                        <a class="dropdown-item" href="/logout" style="color:white">Logout</a>
+                    </ul>
+                </li>
+            <% } else { %>
+                <!-- <li class="nav-item"><a class="nav-link" href="/login" style="color:white">Login</a></li> -->
+            <% } %>
+        </ul>
+        </div>
+    </div>
+
+</header>

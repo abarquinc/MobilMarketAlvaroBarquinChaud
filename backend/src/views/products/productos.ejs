@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head")%>
+    <link rel="stylesheet" href="/css/todosProductos.css" />
+     <script src="https://kit.fontawesome.com/7968cc1663.js" crossorigin="anonymous"></script>
+
+    <body>
+        <%-include("../partials/header")%>
+
+            <main>
+                <div class="container">
+                    <div class="form-content">
+                        <h1 id="title">Todos los productos</h1>
+
+                        <p class="nuevoProducto">
+                            <a href="/create">Agregar <i class="fa-solid fa-circle-plus"></i></a>
+                        </p>
+                        <br>
+                       
+
+                        <div class="tabla">
+                            <table>
+                                <div class="contenido-tabla">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Nombre</th>
+                                </div>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <% productos.forEach(producto=> { %>
+                                        <tr>
+                                            
+                                            <td>
+                                                <a href="/detail/<%= producto.id%>">
+                                                    <%= producto.nombre %>
+                                                </a>
+                                                <p class="editarProducto" > 
+                                                    <a href="/edit/<%= producto.id%>"><ion-icon name="pencil-outline"> </ion-icon></a></td>
+                                                    <form action="/delete/<%= producto.id%>?_method=DELETE" method="POST">
+                                                        <td><a href="/delete/<%= producto.id%>"><ion-icon name="trash-outline"> </ion-icon></a></td>
+                                                    </form>
+                                                        
+                                                    </a>                        </p>
+
+                                                    
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+                        </div>
+                        </table>
+                    </div>
+                </div>
+                <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+            </main>
+
+            <%-include("../partials/footer")%>
+    </body>
+
+</html>

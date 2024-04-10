@@ -1,0 +1,22 @@
+[
+  {
+    "nombre": "Motorola G51",
+    "descripcion": "Celular de Alvaro",
+    "categoria": "Celulares",
+    "precio": "200",
+    "descuento": "",
+    "color": "Negro",
+    "memoria": "128Gb",
+    "id": " 5"
+  },
+  {
+    "id": " 51",
+    "nombre": "ihpone",
+    "descripcion": "13",
+    "categoria": "celular",
+    "precio": "200000",
+    "descuento": "",
+    "color": "blanco",
+    "memoria": ""
+  }
+]

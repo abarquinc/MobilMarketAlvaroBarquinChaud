@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+
+
+/*Estilos del Formulario*/
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #5c5a5a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-content{
+    width: 100%;
+    max-width: 450px;
+    background-color: #272626;
+    padding: 30px 40px 50px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.form-content h1 {
+    font-size: 30 px;
+    margin-bottom: 40px ;
+    color: white;
+    position: relative;
+
+}
+
+.form-content h1::after{
+    content: "";
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: rgb(60, 60, 184);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+
+}
+
+.tabla{
+color: white;
+display: flex;
+justify-content: center;
+font-size: 20px;
+}
+
+.tabla a{
+    color: white;
+    text-decoration: none;
+}
+
+.nuevoProducto{
+    color: white;
+    text-decoration: none;
+}
+
+
+

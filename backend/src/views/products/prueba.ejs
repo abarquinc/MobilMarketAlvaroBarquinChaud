@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de productos</title>
+
+</head>
+
+<body>
+    <h1>Lista de productos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Propiedad 1</th>
+                <th>Propiedad 2</th>
+                <!-- Agrega más columnas según sea necesario -->
+            </tr>
+        </thead>
+        <tbody>
+            <% productos.forEach(producto=> { %>
+                <tr>
+                    <td>
+                        <%= producto.id %>
+                    </td>
+                    <td>
+                        <%= producto.nombre %>
+                    </td>
+                    <td>
+                        <%= producto.descripcion %>
+                    </td>
+                    <!-- Agrega más columnas según sea necesario -->
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>

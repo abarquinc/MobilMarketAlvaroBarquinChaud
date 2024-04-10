@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%-include("../partials/head")%>
+<link rel="stylesheet" href="/css/nuevoproducto.css">
+
+<body>
+    <%-include('../partials/header')%>
+
+    <main>
+        <div class="container">
+            <div class="form-content">
+                <h1 id="title">Agregar Producto</h1>
+                <br>
+
+                <form action="/create" method="POST" id="form-nuevo-producto"  enctype="multipart/form-data">
+                    <div class="input-group">
+                        <div class="input-field" id="nameImput">
+                            <input type="text" placeholder="Nombre del producto" name="nombre">
+                            <span class="error-msg" id="nombre-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="textarea" placeholder="Descripción" name="descripcion">
+                            <span class="error-msg" id="descripcion-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <select name="categoria" required>
+                                <option value="">Seleccionar categoría</option>
+                                <% categorias.forEach(categoria => { %>
+                                <option value="<%= categoria.id %>"><%= categoria.nombre %></option>
+                                <% }); %>
+                            </select>
+                            <span class="error-msg" id="categoria-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Precio" name="precio">
+                            <span class="error-msg" id="precio-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Descuento" name="descuento">
+                            <span class="error-msg" id="descuento-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <select name="color" required>
+                                <option value="">Seleccionar color</option>
+                                <% colores.forEach(color => { %>
+                                <option value="<%= color.id %>"><%= color.nombre %></option>
+                                <% }); %>
+                            </select>
+                            <span class="error-msg" id="color-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" placeholder="Memoria" name="memoria">
+                            <span class="error-msg" id="memoria-error"></span>
+                        </div>
+
+                        <div class="input-field" id="nameImput">
+
+                           
+                            <label class="input-field" id="nameImput" style="color:white;font-size:14px">Foto del
+                                Producto</label>
+                            <input type="file" name='foto'>
+                            <span class="error-msg" id="foto-error"></span>
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="btn-field">
+                        <button id="signUp" type="button">Cancelar</button>
+                        <button onclick="validarNuevoProducto()" id="signIn" type="submit"
+                            class="disable">Crear</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <%-include("../partials/footer")%>
+
+    <script>
+        function validarNuevoProducto() {
+            let nombre = document.forms["form-nuevo-producto"]["nombre"].value;
+            let descripcion = document.forms["form-nuevo-producto"]["descripcion"].value;
+            let categoria = document.forms["form-nuevo-producto"]["categoria"].value;
+            let precio = document.forms["form-nuevo-producto"]["precio"].value;
+            let descuento = document.forms["form-nuevo-producto"]["descuento"].value;
+            let color = document.forms["form-nuevo-producto"]["color"].value;
+            let memoria = document.forms["form-nuevo-producto"]["memoria"].value;
+
+            let nombreError = document.getElementById("nombre-error");
+            let descripcionError = document.getElementById("descripcion-error");
+            let categoriaError = document.getElementById("categoria-error");
+            let precioError = document.getElementById("precio-error");
+            let descuentoError = document.getElementById("descuento-error");
+            let colorError = document.getElementById("color-error");
+            let memoriaError = document.getElementById("memoria-error");
+
+            nombreError.textContent = "";
+            descripcionError.textContent = "";
+            categoriaError.textContent = "";
+            precioError.textContent = "";
+            descuentoError.textContent = "";
+            colorError.textContent = "";
+            memoriaError.textContent = "";
+
+            if (nombre.trim() === "") {
+                nombreError.textContent = "El nombre del producto es requerido.";
+                return false;
+            }
+
+            if (descripcion.trim() === "") {
+                descripcionError.textContent = "La descripción del producto es requerida.";
+                return false;
+            }
+
+            if (categoria === "") {
+                categoriaError.textContent = "Seleccione una categoría para el producto.";
+                return false;
+            }
+
+            if (precio.trim() === "") {
+                precioError.textContent = "El precio del producto es requerido.";
+                return false;
+            }
+
+            if (isNaN(precio)) {
+                precioError.textContent = "El precio debe ser un valor numérico.";
+                return false;
+            }
+
+            if (descuento.trim() !== "" && isNaN(descuento)) {
+                descuentoError.textContent = "El descuento debe ser un valor numérico.";
+                return false;
+            }
+
+            if (color === "") {
+                colorError.textContent = "Seleccione un color para el producto.";
+                return false;
+            }
+
+            if (memoria.trim() === "") {
+                memoriaError.textContent = "La memoria del producto es requerida.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

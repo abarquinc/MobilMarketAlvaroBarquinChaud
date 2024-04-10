@@ -1,0 +1,127 @@
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<%-include("../partials/head")%>
+<link href="css/registro.css" rel="stylesheet">
+
+<body>
+    <%-include("../partials/header")%>
+
+    <main>
+        <div class="container">
+            <div class="form-content">
+                <h1 id="title">Registro</h1>
+                <br>
+                <form action="/registro" method="post" enctype="multipart/form-data" name="form-registro"
+                    id="form-registro">
+                    <div class="input-group">
+                        <div class="input-field" id="nameImput">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Nombre" name='nombre'
+                                value="<%= locals.oldData ? oldData.nombre : null %>">
+                            <span class="error-msg" id="nombre-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" placeholder="Correo Electrónico" name='email'
+                                value="<%= locals.oldData ? oldData.email : null %>">
+                            <span class="error-msg" id="email-error"></span>
+                        </div>
+
+                        <div class="input-field" id="nameImput">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Categoria" name='categoria'>
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" name='password' placeholder="Contraseña">
+                            <span class="error-msg" id="password-error"></span>
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                            <input type="password" name='confirmar_password' placeholder="Confirmar Contraseña">
+                            <span class="error-msg" id="confirmar-password-error"></span>
+                        </div>
+ 
+                        <div class="input-field" id="nameImput">
+                            <i class="fa-solid fa-user"></i>
+                            <label class="input-field" id="nameImput" style="color:white;font-size:14px">Foto de
+                                perfil</label>
+                            <input type="file" name='foto'>
+                            <span class="error-msg" id="foto-error"></span>
+                        </div>
+
+                        <p>¿Ya tenés una cuenta? <a href="#">"Ingresa aquí"</a></p>
+                    </div>
+
+                    <div class="btn-field">
+                        <button id="signUp" type="button">Cancelar</button>
+                        <button onclick="validarRegistro()" id="signIn" type="submit" class="disable">Registrarme
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <%-include("../partials/footer")%>
+
+    <script>
+        function validarRegistro() {
+            let nombre = document.forms["form-registro"]["nombre"].value;
+            let email = document.forms["form-registro"]["email"].value;
+            let password = document.forms["form-registro"]["password"].value;
+            let confirmarPassword = document.forms["form-registro"]["confirmar_password"].value;
+            let foto = document.forms["form-registro"]["foto"].value;
+
+            let nombreError = document.getElementById("nombre-error");
+            let emailError = document.getElementById("email-error");
+            let passwordError = document.getElementById("password-error");
+            let confirmarPasswordError = document.getElementById("confirmar-password-error");
+            let fotoError = document.getElementById("foto-error");
+
+            nombreError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            confirmarPasswordError.textContent = "";
+            fotoError.textContent = "";
+
+            if (nombre.length < 2) {
+                nombreError.textContent = "El nombre debe tener al menos 2 caracteres.";
+                return false;
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.textContent = "Ingrese un formato de correo electrónico válido.";
+                return false;
+            }
+
+            if (password.length < 8) {
+                passwordError.textContent = "La contraseña debe tener al menos 8 caracteres.";
+                return false;
+            }
+
+            if (password !== confirmarPassword) {
+                confirmarPasswordError.textContent = "Las contraseñas no coinciden.";
+                return false;
+            }
+
+            let extensionesPermitidas = [".jpg", ".jpeg", ".png", ".gif"];
+            let extension = foto.substring(foto.lastIndexOf('.')).toLowerCase();
+            if (!extensionesPermitidas.includes(extension)) {
+                fotoError.textContent = "Las extensiones de archivo permitidas son: " + extensionesPermitidas.join(', ');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>

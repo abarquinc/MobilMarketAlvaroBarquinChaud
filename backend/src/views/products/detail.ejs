@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%-include("../partials/head")%>
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/detalle.css">
+
+    <body>
+        <%-include("../partials/header")%>
+
+            <main>
+                <div class="container" style="margin:20px; padding: 20px;">
+                    <div class="form-content">
+                        <h1 id="title">Detalle del producto</h1>
+
+                        <div class="tabla">
+                            <table>
+                                <div class="contenido-tabla">
+                                    <ul>
+
+                                            <li>
+                                                <%= producto.nombre %>
+                                            </li>
+                                            <li>
+                                                <%= producto.descripcion %>
+                                            </li>
+                                            <li>
+                                                $ <%= producto.precio %>
+                                            </li>
+                                            <li>
+                                                <%= producto.color %>
+                                            </li>
+                                            <li>
+                                                <%= producto.memoria %>
+                                            </li>
+                                            <li>
+                                                <img src="/images/productos/<%=producto.foto%> " alt="Imagen del producto">                                            </li>
+
+                                    </ul>
+                                </div>
+                            </table>
+                        </div>
+<br>
+                        <a class="boton-volver" href="/productos">Volver</a>
+                    </div>
+                    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+            </main>
+
+            <%-include("../partials/footer")%>
+    </body>
+
+</html>

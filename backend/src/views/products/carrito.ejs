@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("../partials/head")%>
+    <link rel="stylesheet" href="/css/carrito.css" />
+
+    <body>
+        <%-include("../partials/header")%>
+
+        <main class="main_carrito">
+            <h2 class="titulo-carrito">PASOS PARA LA COMPRA</h2>
+            <div class="div-pasos">
+                <div>
+                    <i
+                        class="fa-solid fa-cart-shopping icon_pasos icon_pasos-active"
+                    ></i>
+                    <p class="p_pasos-active">CARRITO</p>
+                </div>
+                <div class="arrow-pasos"></div>
+                <div>
+                    <i class="fa-solid fa-id-card icon_pasos"></i>
+                    <p>IDENTIFICACIÓN</p>
+                </div>
+                <div class="arrow-pasos"></div>
+                <div>
+                    <i class="fa-solid fa-truck icon_pasos"></i>
+                    <p>ENVÍO</p>
+                </div>
+                <div class="arrow-pasos"></div>
+                <div>
+                    <i class="fa-sharp fa-solid fa-credit-card icon_pasos"></i>
+                    <p>PAGO</p>
+                </div>
+            </div>
+            <section class="section_carrito">
+                <div class="carrito-container">
+                    <div class="card_carrito">
+                        <img src="/images/productos/iphone13-frontal.png" alt="" />
+                        <p>Iphone 13 - $250000 (rojo-4gb/128gb)</p>
+                        <input type="number" value="1" name="" />
+                    </div>
+                    <div class="card_carrito">
+                        <img src="/images/productos/iphone13-frontal.png" alt="" />
+                        <p>Iphone 13 - $250000 (negro-4gb/256gb)</p>
+                        <input type="number" value="1" name="" />
+                    </div>
+                    <div class="card_carrito">
+                        <img src="/images/productos/iphone13-frontal.png" alt="" />
+                        <p>Iphone 13 - $250000 (blanco-4gb/128gb)</p>
+                        <input type="number" value="1" name="" />
+                    </div>
+                </div>
+                <div class="detalle-container">
+                    <div class="card-compra">
+                        <p>DETALLE COMPRA</p>
+                    </div>
+                    <div class="card-cupon">
+                        <p>CUPON DE DESCUENTO</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="promocion-carrito">
+                    <h3 class="titulo-carrito">
+                        PRODUCTOS Y ACCESORIOS RELACIONADOS
+                    </h3>
+
+                    <img src="/images/productos/iphone13-frontal.png" alt="" />
+                    <img src="/images/productos/iphone13-frontal.png" alt="" />
+                    <img src="/images/productos/iphone13-frontal.png" alt="" />
+                    <img src="/images/productos/iphone13-frontal.png" alt="" />
+                </div>
+            </section>
+        </main>
+
+        <%-include("../partials/footer")%>
+    </body>
+</html>
